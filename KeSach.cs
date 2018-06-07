@@ -68,6 +68,7 @@ namespace Library1
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
+        	try{
             if (MessageBox.Show("Bạn có chắc chắn muôn xóa bản ghi đang chọn không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 SqlCommand cmd = new SqlCommand("XoaKeSach", conn);
@@ -85,7 +86,8 @@ namespace Library1
                     MessageBox.Show("Xóa thành công!");
                     LoadData();
                 }
-                else MessageBox.Show("Không thể xóa bản ghi hiện thời!");
+            }
+                catch{ MessageBox.Show("Không thể xóa bản ghi hiện thời!");}
             }
         }
 
