@@ -28,6 +28,7 @@ namespace Library1
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+        	try{
             SqlCommand cmd = new SqlCommand("SuaKeSach", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -49,8 +50,10 @@ namespace Library1
             {
                 MessageBox.Show("Sửa thành công!");
                 LoadData();
+            }}
+            catch{
+                MessageBox.Show("Không sửa được!");
             }
-            else MessageBox.Show("Không sửa được!");
         }
 
         private void label2_Click(object sender, EventArgs e)
